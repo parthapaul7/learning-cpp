@@ -2,6 +2,7 @@
 #include <string>
 using namespace std;
 
+/// classes are extensions of structiure like private public and adding funtions /// 
 //////// classes ///////////////
 class Employee
 {
