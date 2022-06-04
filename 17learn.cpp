@@ -118,16 +118,63 @@ void butterflyPattern(int n)
     }
 }
 
-// easy way to solve 
-// 1. divide in colms and rows 
+// easy way to solve
+// 1. divide in colms and rows
 // 2. calculate the no. of spaces required
 
+void rombusPattern(int n)
+{
+    for (int i = 1; i <= n; i++)
+    {
+        for (int j = i; j <= n; j++)
+        {
+            cout << " ";
+        }
+        for (int j = 1; j <= n; j++)
+        {
+            cout << "* ";
+        }
+        cout << endl;
+    }
+}
+void perfectNumTriangle(int n)
+{
+    for (int i = 1; i <= n; i++)
+    {
+        for (int j = 1; j <= n - i; j++)
+        {
+            cout << " ";
+        }
+        for (int j = 1; j <= i; j++)
+        {
+            cout << j << " ";
+        }
+        cout << endl;
+    }
+}
+void palandromeTriagle(int n){
+    for(int i=0;i<=n;i++){
+        for(int j=1;j<= n-i;j++){
+            cout<<"  ";
+        }
+        for(int j= i; j >1 ;j--){
+            cout << j<<" ";
+        }
+        for (int j = 1; j <= i; j++)
+        {
+            cout << j << " ";
+        }
+        cout<<endl;
+    }
+}
 
 int main()
 {
-
     // printRect(10,10);
     // pyramid(10);
     // pyramidOfNumbers(9);
-    butterflyPattern(10);
+    // butterflyPattern(10);
+    // rombusPattern(20);
+    // perfectNumTriangle(9);
+    palandromeTriagle(9);
 }
