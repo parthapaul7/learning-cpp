@@ -17,7 +17,7 @@ int lcmFromGcd(int n,int m){
     return n*m/gcdWithRec(n,m); 
 }
 
-//QUES check if sorted or not 
+// QUES check if sorted or not
 bool isSorted(int arr[],int n){
     if(n <=1){
         return true;
@@ -77,8 +77,59 @@ string replaceWith(string str){
 //QUES: tower of hanoi
 
 
+//QUES remove duplication from a string 
+// caution : this only removes duplication if 2 same chars are consucative
+
+string removeDuplication(string str)
+{
+
+    if (str.length() == 0)
+    {
+        return "";
+    }
+    if (str[0] == str[1])
+    {
+        return removeDuplication(str.substr(1));
+    }
+    else
+    {
+        return str[0] + removeDuplication(str.substr(1));
+    }
+}
+
+//QUES: move all x to the end of the string
+
+string moveAllX(string str){
+   if(str.length() == 0) {
+    return "";
+   }
+    if(str[0] == 'x'){
+        return moveAllX(str.substr(1)) + str[0];
+    }
+    else{
+        return str[0]+ moveAllX(str.substr(1));
+    }
+}
+
+//QUES: generate all substring in a string 
+void printAllSubstring(string str, string ans){
+    if(str.length() == 0) {
+        cout <<ans<<endl;
+        return ;
+    }
+    printAllSubstring(str.substr(1), ans);
+    printAllSubstring(str.substr(1),ans+str[0]);
+}
+//QUES:print all posible word combination form phone keypad
+
+void printAllWords(string str, string ans,int a, int b){
+
+}
+
 int main(){
     int arr[5]={1,2,3,4,2};
     // cout<<lastOccurance(arr,5,0,2)<<endl;
-    cout<<replaceWith("")<<endl;
+    // cout<<<<endl;
+    // printAllSubstring("abc","");
+    string phoneNo[10]={ " ","/","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
 }
