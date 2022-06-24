@@ -63,6 +63,7 @@ int indexOfMinimunRepeat(int arr[], int n)
 }
 
 int maxSubarraySum(int arr[],int n){
+    /// kadanes algorithm
     int maxSum=0,currentSum=0;
     for(int i=0;i<n;i++){
         currentSum += arr[i];
