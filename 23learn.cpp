@@ -4,7 +4,7 @@ using namespace std;
 
 // TOPIC: Normal Sorting with vector
 
-//FIXME:bublle sor with vecotr
+//QUES:bublle sor with vecotr
 // the largest element goes to the right place;
 vector<int> bubbleSort(vector<int> arr)
 {
@@ -23,7 +23,7 @@ vector<int> bubbleSort(vector<int> arr)
     return arr;
 }
 
-//FIXME: insertion sort 
+//QUES: insertion sort 
 // insert the element in its correct postion
 // go down one by one and swap elemets
 vector<int> insertionSort(vector<int> arr)

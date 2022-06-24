@@ -44,6 +44,5 @@ int main(){
 
     vector<int> arr = {1,2,3,2,1};
     cout<<findUnique(arr)<<endl;
-    //Sieve of Eratosthenes
 
 }
