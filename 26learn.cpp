@@ -75,6 +75,7 @@ string replaceWith(string str){
 }
 
 //QUES: tower of hanoi
+//BUG: not done 
 
 
 //QUES remove duplication from a string 
@@ -121,10 +122,21 @@ void printAllSubstring(string str, string ans){
     printAllSubstring(str.substr(1),ans+str[0]);
 }
 //QUES:print all posible word combination form phone keypad
-
-void printAllWords(string str, string ans,int a, int b){
+//BUG: tried without permuntation but have to try with permuntaion
+void printAllWords(string arr[],int a, int b){
+        string firstStr = arr[a];
+        string secondOne = arr[b];
+    for(int i=0;i<firstStr.length();i++){
+        for(int j=0;j<secondOne.length();j++){
+            cout<<firstStr[i];
+            cout<<secondOne[j];
+            cout<<endl;
+        }
+    }
 
 }
+//QUES: print all permuntation of a string
+
 
 int main(){
     int arr[5]={1,2,3,4,2};
@@ -132,4 +144,5 @@ int main(){
     // cout<<<<endl;
     // printAllSubstring("abc","");
     string phoneNo[10]={ " ","/","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
+    printAllWords(phoneNo,4,3);
 }
