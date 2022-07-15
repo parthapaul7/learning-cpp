@@ -1,4 +1,4 @@
-#include <iostream>
+#include<iostream>
 #include<stack>
 using namespace std;
 
@@ -24,8 +24,38 @@ string reverseString(string s){
     }
     return word;
 }
-
+//QUES reverse a stack without making another stack 
+void insetAtBottom(stack<int> &stk,int temp){
+    if(stk.empty()){
+        stk.push(temp);
+        return;
+    };
+    int temp2= stk.top();
+    stk.pop();
+    insetAtBottom(stk,temp);
+    stk.push(temp2);
+    return;
+}
+void reverseStack(stack<int> &stk){
+    if(stk.empty()){
+        return;
+    }
+    int temp = stk.top();
+    stk.pop();
+    reverseStack(stk);
+    insetAtBottom(stk,temp);
+    return;
+    
+}
 int main(){
-    string str = "hey how are you doning?";
-    cout<<reverseString(str)<<endl;;
+    // string str = "hey how are you doning?";
+    // cout<<reverseString(str)<<endl;;
+    stack<int> stk;
+
+    stk.push(1);
+    stk.push(2);
+    stk.push(3);
+    stk.push(4);
+    reverseStack(stk);
+    cout<<stk.top()<<endl;
 }
