@@ -27,7 +27,6 @@ class stack{
             cout<<"empty stack"<<endl;
             return ;
         };
-
         top--;
         return;
     }
