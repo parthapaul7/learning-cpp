@@ -53,6 +53,7 @@ vector<int> stockSpan(vector<int> prob){
 }
 
 // QUES: The Three sum problem with two pointers
+//! first you need the sort the array
 
 int sum(vector<int> prob,int res){
     int ans;
@@ -82,30 +83,29 @@ int sum(vector<int> prob,int res){
 
 // QUES: Maximum consecative ones 
 int maxConsecative(vector<int> prob,int k){
-    stack<int> st;
-    for(int i=0;i<prob.size();i++){
-        // cout<<prob[i]<<" "<<i<<endl;
-        while(!st.empty() && st.top() == 0 && prob[i] ==1){
-            st.pop();
+    int ans=0;
+    int left =0;int right=0;
+    int zeros=0;
+    for(right=0;right<prob.size();right++){
+        if(prob[right] == 0){
+            zeros++;
+                while(zeros > k){
+                    if(prob[left] == 0){
+                        zeros--;
+                    }
+                    left++;
+                }
+            }
+            ans = max(ans,right-left+1);
         }
-        if(prob[i] == 1){
-            st.push(1);
-        }
-        else if(prob[i] == 0 && k){
-            st.push(0);
-            k--;
-        }
-
-    }
-    int ans =0;
-    while(!st.empty()){
-        if(st.top() == 1){
-            ans++;
-        }
-        st.pop();
-    }
     return ans;
 }
+
+//QUES: longest substring without repeating character (dict ??)  
+
+int longestSubstring(string str){
+
+} 
 
 int main(){
     string s;
@@ -122,7 +122,7 @@ int main(){
     // }
     // vector<int> prob = {-1,2,5,6,7,8,10};
     // int ans = sum(prob,18);
-    vector<int> prob = {1,0,0,0,1,1,1,0,0,0,1,1,1,1,0};
-    int ans = maxConsecative(prob,2);
+    vector<int> prob = {1,0,0,0,1,1,0,0,0,1,1,0};
+    int ans = maxConsecative(prob,3);
     cout<<ans<<endl;
 }

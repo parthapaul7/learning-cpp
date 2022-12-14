@@ -8,10 +8,10 @@ int gcdWithRec(int a, int b){
     if( b == 0){
         return a;
     }
-    int r = a%b;
-    a = b;
-    b = r;
-    return gcdWithRec(a, b);
+    // int r = a%b;
+    // a = b;
+    // b = r;
+    return gcdWithRec(b, a%b);
 }
 int lcmFromGcd(int n,int m){
     return n*m/gcdWithRec(n,m); 

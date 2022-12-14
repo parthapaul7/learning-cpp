@@ -13,9 +13,10 @@ int total(int* num,int len){
 
 int main(){
     
-    int a=3 ;
-    int* b=&a;       // & a means the address of a 
-    cout<<*b<<endl;
+    // int a=3 ;
+    // int* b=&a;       // & a means the address of a 
+    int a[3]= new int{1,3,4};
+    cout<<a<<endl;
 
 
     // cout<<"value at address "<<b<<" is: "<< *b<<endl;
