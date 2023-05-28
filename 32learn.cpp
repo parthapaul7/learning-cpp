@@ -50,9 +50,9 @@ void AddToHead(node* &head,int val){
 void printLinkedList(node* head){
 
     node * temp = head;
-    while(temp!= NULL){
-        cout<<temp->data<<" - "; 
-        temp = temp->next;
+    while(head!= NULL){
+        cout<<head->data<<" - "; 
+        head= head->next;
     }
     cout<<"NULL"<<endl;
 }
@@ -106,7 +106,7 @@ void reverseList(node* &head){
     node* current=head;
     node* nextptr;
 
-    while(current != NULL){
+    while(current!= NULL){
         nextptr = current->next;
 
         current->next = previous; // main step
@@ -116,6 +116,21 @@ void reverseList(node* &head){
     }
 
     head = previous;
+}
+
+void reverse(node* &head , node* current , node* prev){
+    // base case 
+    if(current == NULL){
+        head = prev; 
+        return;
+    }
+
+    // cout<<head->data<<endl;
+    // prev = head;
+    reverse(head, current->next, current);
+    current->next = prev;
+    return;
+
 }
 
 //QUES reverse k nodes in a linked list
@@ -150,6 +165,34 @@ bool detectCycle(node* head){
 }
 
 
+int findSize(node* head){
+        int count = 0;
+
+        while(head != nullptr){
+            head = head->next;
+            count++;
+        }
+        return count;
+}
+
+    void alternateReverse(node* head , node* nextStep){
+        
+        if(head == nullptr || head->next == nullptr){
+            return; 
+        }
+
+        node* temp = head;
+        // cout<<head->data<<endl;
+        if(head->next->next == nullptr){
+            head->next = head->next->next;
+        }else{
+            head->next = head->next->next->next;
+        }
+        temp->next = head;
+        alternateReverse(head, nextStep->next->next);
+
+
+    }
 int main(){
     node* head=new node(); 
     head=NULL;
@@ -166,10 +209,14 @@ int main(){
     addToTail(head,6);   
     addToTail(head,7);   
     addToTail(head,8);   
-    addToTail(head,9);   
-    reverseKnodes(head,3);
+    // addToTail(head,9);   
+    reverseList(head);
+    reverse(head,head,NULL);
     // cout<<deleteNode(head,0)<<" delete"<<endl;
-    printLinkedList(head);
+    alternateReverse(head, head->next->next);
+    cout<<head<<endl;
+    // printLinkedList(head);
+    // cout<<findSize(head)<<endl;
     // cout<<length(head)<<endl;;
     ////////////////////////////
 
